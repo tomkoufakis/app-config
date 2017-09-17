@@ -2,7 +2,7 @@ Configure your Node.js Applications
 ===================================
 
 [![NPM](https://nodei.co/npm/app-config.svg?downloads=true&downloadRank=true)](https://nodei.co/npm/app-config/)&nbsp;&nbsp;
-[![Build Status](https://secure.travis-ci.org/tkoufakis/app-config.svg?branch=master)](https://travis-ci.org/tkoufakis/app-config)&nbsp;&nbsp;
+[![Build Status](https://secure.travis-ci.org/tomkoufakis/app-config.svg?branch=master)](https://travis-ci.org/tomkoufakis/app-config)&nbsp;&nbsp;
 [release notes](https://github.com/tomkoufakis/app-config/blob/master/History.md)
 
 Introduction
