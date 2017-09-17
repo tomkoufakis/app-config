@@ -1,0 +1,6 @@
+{
+  "Customers": {
+    "dbName":"from_custom_default_json",
+    "custom":"custom_value"
+  }
+}

@@ -33,7 +33,7 @@ vows.describe('Test suite for app-config')
       override = 'CUSTOM VALUE FROM JSON ENV MAPPING';
       process.env.CUSTOM_JSON_ENVIRONMENT_VAR = override;
 
-      CONFIG = requireUncached(__dirname + '/../lib/config').withConfig(__dirname + '/config');
+      CONFIG = requireUncached(__dirname + '/../lib/config').withConfig(__dirname + '/module-config');
 
       return CONFIG;
 
@@ -43,6 +43,12 @@ vows.describe('Test suite for app-config')
     },
     'Config extensions are included with the library': function() {
       assert.isFunction(CONFIG.util.cloneDeep);
+    },
+    'Parent configs override children': function() {
+      assert.equal(CONFIG.get('Customers.dbName'), 'from_default_json');
+    },
+    'configs exist in children': function() {
+      assert.equal(CONFIG.Customers.custom, 'custom_value');
     }
   },
 })
