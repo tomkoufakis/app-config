@@ -1,13 +1,13 @@
 {
-  "name": "multi-config",
+  "name": "nm-config",
   "version": "1.0.0",
   "main": "./lib/config.js",
   "description": "Configuration control for production node deployments",
   "author": "Tom Koufakis",
-  "homepage": "http://tomkoufakis.github.com/multi-config",
+  "homepage": "http://tomkoufakis.github.com/nm-config",
   "keywords": [
     "conf",
-    "multi-config",
+    "nm-config",
     "config",
     "configuration",
     "node-config",
@@ -41,7 +41,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/tomkoufakis/multi-config.git"
+    "url": "http://github.com/tomkoufakis/nm-config.git"
   },
   "engines": {
     "node": ">= 4.0.0"

@@ -1,18 +1,18 @@
 Configure your Node.js Applications
 ===================================
 
-[![NPM](https://nodei.co/npm/multi-config.svg?downloads=true&downloadRank=true)](https://nodei.co/npm/multi-config/)&nbsp;&nbsp;
-[![Build Status](https://secure.travis-ci.org/tomkoufakis/multi-config.svg?branch=master)](https://travis-ci.org/tomkoufakis/multi-config)&nbsp;&nbsp;
-[release notes](https://github.com/tomkoufakis/multi-config/blob/master/History.md)
+[![NPM](https://nodei.co/npm/nm-config.svg?downloads=true&downloadRank=true)](https://nodei.co/npm/nm-config/)&nbsp;&nbsp;
+[![Build Status](https://secure.travis-ci.org/tomkoufakis/nm-config.svg?branch=master)](https://travis-ci.org/tomkoufakis/nm-config)&nbsp;&nbsp;
+[release notes](https://github.com/tomkoufakis/nm-config/blob/master/History.md)
 
 Introduction
 ------------
 
-multi-config organizes hierarchical configurations for your app deployments.
+nm-config organizes hierarchical configurations for your app deployments.
 
 This repo was forked from [node-config](https://github.com/lorenwest/node-config) and add's additional functionality to allow for multilevel config directories.
 This is useful when using config in an npm package where that package will have it's own configuration. Your main application 
-can then choose to override those configurations, if it also uses multi-config.
+can then choose to override those configurations, if it also uses nm-config.
 
 It lets you define a set of default parameters,
 and extend them for different deployment environments (development, qa,
@@ -40,7 +40,7 @@ The following examples are in JSON format, but configurations can be in other [f
 **Install in your app directory, and edit the default config file.**
 
 ```shell
-$ npm install multi-config
+$ npm install nm-config
 $ mkdir config
 $ vi config/default.json
 ```
@@ -84,7 +84,7 @@ $ vi config/default.json
 **Use configs in your code:**
 
 ```js
-var config = require('multi-config');
+var config = require('nm-config');
 //...
 var dbConfig = config.get('Customer.dbConfig');
 db.connect(dbConfig, ...);
@@ -138,13 +138,13 @@ in a hierarchical manner. Your folder structure could look like this:
 ```
 
 ```js in my_module
-var config = require('multi-config').withConfig('./config');
+var config = require('nm-config').withConfig('./config');
 //...
 var key1 = config.get('key1'); // key1 = parent
 var key2 = config.get('key2'); // key2 = value2
 ```
 ```js in app
-var config = require('multi-config')
+var config = require('nm-config')
 //...
 var key3 = config.get('key3'); // key3 = key3
 var key2 = config.get('key2'); // key2 = undefined
@@ -174,8 +174,8 @@ Contributors
 License
 -------
 
-May be freely distributed under the [MIT license](https://raw.githubusercontent.com/tomkoufakis/multi-config/master/LICENSE).
+May be freely distributed under the [MIT license](https://raw.githubusercontent.com/tomkoufakis/nm-config/master/LICENSE).
 
 Copyright (c) 2017 Tom Koufakis 
-[and other contributors](https://github.com/tomkoufakis/multi-config/graphs/contributors)
+[and other contributors](https://github.com/tomkoufakis/nm-config/graphs/contributors)
 

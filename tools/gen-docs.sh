@@ -27,9 +27,9 @@ yuidoc \
   -v $version
 
 
-echo Copying the documentation to ../tomkoufakis.github.com/multi-config/$version
-rm -rf ../tomkoufakis.github.com/multi-config/$version
-cp -R doc ../tomkoufakis.github.com/multi-config/$version
-echo Copying the documentation to ../tomkoufakis.github.com/multi-config/latest
-rm -rf ../tomkoufakis.github.com/multi-config/latest
-cp -R doc ../tomkoufakis.github.com/multi-config/latest
+echo Copying the documentation to ../tomkoufakis.github.com/nm-config/$version
+rm -rf ../tomkoufakis.github.com/nm-config/$version
+cp -R doc ../tomkoufakis.github.com/nm-config/$version
+echo Copying the documentation to ../tomkoufakis.github.com/nm-config/latest
+rm -rf ../tomkoufakis.github.com/nm-config/latest
+cp -R doc ../tomkoufakis.github.com/nm-config/latest
