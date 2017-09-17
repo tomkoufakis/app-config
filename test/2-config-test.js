@@ -15,7 +15,7 @@ var vows = require('vows'),
  */
 
 var CONFIG, override;
-vows.describe('Test suite for app-config')
+vows.describe('Test suite for multi-config')
 .addBatch({
   'Library custom path initialization': {
     topic : function () {

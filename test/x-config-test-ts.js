@@ -20,7 +20,7 @@ var vows = require('vows'),
  */
 
 var CONFIG, override;
-vows.describe('Test suite for app-config TypeScript support')
+vows.describe('Test suite for multi-config TypeScript support')
 .addBatch({
   'Library initialization with TypeScript config files': {
     topic : function () {

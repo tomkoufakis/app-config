@@ -7,7 +7,7 @@ var request = require('request'),
     fs = require('fs');
 
 // Constants
-REPO = 'tomkoufakis/app-config';
+REPO = 'tomkoufakis/multi-config';
 README_FILE = './README.md';
 
 // HTML template parts

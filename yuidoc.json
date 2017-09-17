@@ -1,6 +1,6 @@
 {
   "name": "Node.js Configuration",
-  "url": "https://github.com/tomkoufakis/app-config",
+  "url": "https://github.com/tomkoufakis/multi-config",
   "options": {
     "outdir": ".doc"
   }

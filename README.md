@@ -1,18 +1,18 @@
 Configure your Node.js Applications
 ===================================
 
-[![NPM](https://nodei.co/npm/app-config.svg?downloads=true&downloadRank=true)](https://nodei.co/npm/app-config/)&nbsp;&nbsp;
-[![Build Status](https://secure.travis-ci.org/tomkoufakis/app-config.svg?branch=master)](https://travis-ci.org/tomkoufakis/app-config)&nbsp;&nbsp;
-[release notes](https://github.com/tomkoufakis/app-config/blob/master/History.md)
+[![NPM](https://nodei.co/npm/multi-config.svg?downloads=true&downloadRank=true)](https://nodei.co/npm/multi-config/)&nbsp;&nbsp;
+[![Build Status](https://secure.travis-ci.org/tomkoufakis/multi-config.svg?branch=master)](https://travis-ci.org/tomkoufakis/multi-config)&nbsp;&nbsp;
+[release notes](https://github.com/tomkoufakis/multi-config/blob/master/History.md)
 
 Introduction
 ------------
 
-app-config organizes hierarchical configurations for your app deployments.
+multi-config organizes hierarchical configurations for your app deployments.
 
 This repo was forked from [node-config](https://github.com/lorenwest/node-config) and add's additional functionality to allow for multilevel config directories.
 This is useful when using config in an npm package where that package will have it's own configuration. Your main application 
-can then choose to override those configurations, if it also uses app-config.
+can then choose to override those configurations, if it also uses multi-config.
 
 It lets you define a set of default parameters,
 and extend them for different deployment environments (development, qa,
@@ -40,7 +40,7 @@ The following examples are in JSON format, but configurations can be in other [f
 **Install in your app directory, and edit the default config file.**
 
 ```shell
-$ npm install app-config
+$ npm install multi-config
 $ mkdir config
 $ vi config/default.json
 ```
@@ -84,7 +84,7 @@ $ vi config/default.json
 **Use configs in your code:**
 
 ```js
-var config = require('app-config');
+var config = require('multi-config');
 //...
 var dbConfig = config.get('Customer.dbConfig');
 db.connect(dbConfig, ...);
@@ -108,6 +108,47 @@ $ node my-app.js
 Running in this configuration, the `port` and `dbName` elements of `dbConfig`
 will come from the `default.json` file, and the `host` element will
 come from the `production.json` override file.
+
+**using config in submodules/npm packages:**
+
+If your npm package requires custom configuration, you can lay your configuration out
+in a hierarchical manner. Your folder structure could look like this:
+
+/
+- config
+  - default.json
+- node_modules
+  - my_module
+    - config
+      - default.json
+- index.js
+
+``` json of module default.json
+{
+  "key1": "value1",
+  "key2": "value2"
+}
+```
+
+``` json of app default.json
+{
+  "key1": "perent",
+  "key3": "value3"
+}
+```
+
+```js in my_module
+var config = require('multi-config').withConfig('./config');
+//...
+var key1 = config.get('key1'); // key1 = parent
+var key2 = config.get('key2'); // key2 = value2
+```
+```js in app
+var config = require('multi-config')
+//...
+var key3 = config.get('key3'); // key3 = key3
+var key2 = config.get('key2'); // key2 = undefined
+```
 
 Articles
 --------
@@ -133,8 +174,8 @@ Contributors
 License
 -------
 
-May be freely distributed under the [MIT license](https://raw.githubusercontent.com/tomkoufakis/app-config/master/LICENSE).
+May be freely distributed under the [MIT license](https://raw.githubusercontent.com/tomkoufakis/multi-config/master/LICENSE).
 
 Copyright (c) 2017 Tom Koufakis 
-[and other contributors](https://github.com/tomkoufakis/app-config/graphs/contributors)
+[and other contributors](https://github.com/tomkoufakis/multi-config/graphs/contributors)
 
