@@ -32,9 +32,9 @@ function getContributorTable(callback) {
       console.error('Cannot load contributor list', error);
       process.exit(1);
     }
-    var contributors;
+    var contributors = [{"login": "tomkoufakis", "avatar_url": "https://avatars2.githubusercontent.com/u/11436187?v=4", "html_url": "https://github.com/tomkoufakis"}];
     try {
-      contributors = JSON.parse(body);
+      contributors = contributors.concat(JSON.parse(body));
     } catch (e) {
       console.error('Error loading contributor list: ' + body);
     }
