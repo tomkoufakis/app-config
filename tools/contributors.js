@@ -7,7 +7,7 @@ var request = require('request'),
     fs = require('fs');
 
 // Constants
-REPO = 'lorenwest/node-config';
+REPO = 'tomkoufakis/app-config';
 README_FILE = './README.md';
 
 // HTML template parts
@@ -36,7 +36,7 @@ function getContributorTable(callback) {
     try {
       contributors = JSON.parse(body);
     } catch (e) {
-      console.error('Error loading contribtor list: ' + body);
+      console.error('Error loading contributor list: ' + body);
     }
 
     // Un-comment to show what github spits out

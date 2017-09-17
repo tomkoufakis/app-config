@@ -1,0 +1,7 @@
+{
+  "name": "Node.js Configuration",
+  "url": "https://github.com/tomkoufakis/app-config",
+  "options": {
+    "outdir": ".doc"
+  }
+}

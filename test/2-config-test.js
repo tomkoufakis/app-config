@@ -15,7 +15,7 @@ var vows = require('vows'),
  */
 
 var CONFIG, override;
-vows.describe('Test suite for node-config')
+vows.describe('Test suite for app-config')
 .addBatch({
   'Library initialization': {
     topic : function () {

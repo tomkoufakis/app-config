@@ -1,14 +1,18 @@
 Configure your Node.js Applications
 ===================================
 
-[![NPM](https://nodei.co/npm/config.svg?downloads=true&downloadRank=true)](https://nodei.co/npm/config/)&nbsp;&nbsp;
-[![Build Status](https://secure.travis-ci.org/lorenwest/node-config.svg?branch=master)](https://travis-ci.org/lorenwest/node-config)&nbsp;&nbsp;
-[release notes](https://github.com/lorenwest/node-config/blob/master/History.md)
+[![NPM](https://nodei.co/npm/app-config.svg?downloads=true&downloadRank=true)](https://nodei.co/npm/app-config/)&nbsp;&nbsp;
+[![Build Status](https://secure.travis-ci.org/tkoufakis/app-config.svg?branch=master)](https://travis-ci.org/tkoufakis/app-config)&nbsp;&nbsp;
+[release notes](https://github.com/tomkoufakis/app-config/blob/master/History.md)
 
 Introduction
 ------------
 
-Node-config organizes hierarchical configurations for your app deployments.
+app-config organizes hierarchical configurations for your app deployments.
+
+This repo was forked from [node-config](https://github.com/lorenwest/node-config) and add's additional functionality to allow for multilevel config directories.
+This is useful when using config in an npm package where that package will have it's own configuration. Your main application 
+can then choose to override those configurations, if it also uses app-config.
 
 It lets you define a set of default parameters,
 and extend them for different deployment environments (development, qa,
@@ -36,7 +40,7 @@ The following examples are in JSON format, but configurations can be in other [f
 **Install in your app directory, and edit the default config file.**
 
 ```shell
-$ npm install config
+$ npm install app-config
 $ mkdir config
 $ vi config/default.json
 ```
@@ -80,7 +84,7 @@ $ vi config/default.json
 **Use configs in your code:**
 
 ```js
-var config = require('config');
+var config = require('app-config');
 //...
 var dbConfig = config.get('Customer.dbConfig');
 db.connect(dbConfig, ...);
@@ -129,8 +133,8 @@ Contributors
 License
 -------
 
-May be freely distributed under the [MIT license](https://raw.githubusercontent.com/lorenwest/node-config/master/LICENSE).
+May be freely distributed under the [MIT license](https://raw.githubusercontent.com/tomkoufakis/app-config/master/LICENSE).
 
-Copyright (c) 2010-2015 Loren West 
-[and other contributors](https://github.com/lorenwest/node-config/graphs/contributors)
+Copyright (c) 2017 Tom Koufakis 
+[and other contributors](https://github.com/tomkoufakis/app-config/graphs/contributors)
 
