@@ -17,6 +17,36 @@ var vows = require('vows'),
 var CONFIG, override;
 vows.describe('Test suite for app-config')
 .addBatch({
+  'Library custom path initialization': {
+    topic : function () {
+      // Hardcode $NODE_ENV=test for testing
+      process.env.NODE_ENV='test';
+
+      // Test for multi-instance applications
+      process.env.NODE_APP_INSTANCE='3';
+
+      // Test $NODE_CONFIG environment and --NODE_CONFIG command line parameter
+      process.env.NODE_CONFIG='{"EnvOverride":{"parm3":"overridden from $NODE_CONFIG","parm4":100}}';
+      process.argv.push('--NODE_CONFIG={"EnvOverride":{"parm5":"overridden from --NODE_CONFIG","parm6":101}}');
+
+      // Test Environment Variable Substitution
+      override = 'CUSTOM VALUE FROM JSON ENV MAPPING';
+      process.env.CUSTOM_JSON_ENVIRONMENT_VAR = override;
+
+      CONFIG = requireUncached(__dirname + '/../lib/config').withConfig(__dirname + '/config');
+
+      return CONFIG;
+
+    },
+    'Config library is available': function() {
+      assert.isObject(CONFIG);
+    },
+    'Config extensions are included with the library': function() {
+      assert.isFunction(CONFIG.util.cloneDeep);
+    }
+  },
+})
+.addBatch({
   'Library initialization': {
     topic : function () {
       // Change the configuration directory for testing
